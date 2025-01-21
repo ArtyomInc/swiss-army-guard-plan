@@ -1,7 +1,9 @@
-export interface guardResult {
-  tranche: guardPerDay[];
+export interface GuardPairPerDay {
+  name: string;
+  period: string[];
 }
 
-interface guardPerDay {
-  begin: number;
+export interface GuardPerDay {
+  date: string;
+  pair: GuardPairPerDay[];
 }
