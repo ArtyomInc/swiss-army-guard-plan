@@ -1,0 +1,52 @@
+{
+  "name": "generateur-plan-garde",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "bun run lint && bun run nuxt dev",
+    "lint": "bun run lint:eslint && bun run lint:prettier",
+    "lint:eslint": "eslint . --fix",
+    "lint:prettier": "prettier . --write",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@nuxt/eslint": "^0.7.0",
+    "@nuxt/icon": "^1.7.5",
+    "@nuxtjs/color-mode": "^3.5.2",
+    "@nuxtjs/tailwindcss": "6.12.2",
+    "@pinia/nuxt": "^0.7.0",
+    "@radix-icons/vue": "^1.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.14.0",
+    "@typescript-eslint/parser": "^8.14.0",
+    "@vee-validate/zod": "^4.15.0",
+    "@vueuse/core": "^12.4.0",
+    "@vueuse/nuxt": "^11.3.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "eslint": "^9.15.0",
+    "nuxt": "^3.14.159",
+    "pinia": "^2.2.6",
+    "radix-vue": "^1.9.11",
+    "shadcn-nuxt": "0.11.3",
+    "tailwind-merge": "^2.5.5",
+    "tailwindcss-animate": "^1.0.7",
+    "vee-validate": "^4.15.0",
+    "vue": "latest",
+    "vue-router": "latest",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@iconify-json/heroicons": "^1.2.2",
+    "@iconify-json/lucide": "^1.2.19",
+    "@iconify-json/mdi": "^1.2.2",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-perfectionist": "^3.9.1",
+    "eslint-plugin-prettier": "^5.2.1",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.9",
+    "typescript": "^5.6.3"
+  }
+}
