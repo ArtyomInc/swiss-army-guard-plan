@@ -28,6 +28,17 @@
         type="text"
       />
     </div>
+    <div>
+      <label>Tranche d'affectation</label>
+      <TagsInput v-model="modelValue">
+        <TagsInputItem v-for="item in modelValue" :key="item" :value="item">
+          <TagsInputItemText />
+          <TagsInputItemDelete />
+        </TagsInputItem>
+
+        <TagsInputInput placeholder="Garde..." />
+      </TagsInput>
+    </div>
     <div class="flex flex-col gap-1">
       <label>Paire de soldat</label>
       <template v-for="(pair, index) in userField.pair" :key="index">
@@ -59,6 +70,13 @@
 <script setup lang="ts">
 import { Button } from "@/ui/button";
 import { Input } from "@/ui/input";
+import {
+  TagsInput,
+  TagsInputInput,
+  TagsInputItem,
+  TagsInputItemDelete,
+  TagsInputItemText,
+} from "@/ui/tags-input";
 import { reactive } from "vue";
 
 import type { userForm } from "~/interfaces";
@@ -69,6 +87,8 @@ const userField = reactive<userForm>({
   pair: ["Jean & Pierre", "Michel & Nils"],
   periodDuration: 120,
 });
+
+const modelValue = ref(["Garde", "Réserve"]);
 
 const emit = defineEmits<{
   (e: "update:modelValue", value: userForm): void;
