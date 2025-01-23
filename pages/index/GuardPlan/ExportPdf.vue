@@ -50,10 +50,10 @@
                       v-for="period in pair.period"
                       :key="randomID"
                       class="min-w-20"
-                      :class="{ 'bg-red-100': period === 'Garde' }"
+                      :class="period.class"
                     >
                       <div class="flex justify-center px-2">
-                        {{ period }}
+                        {{ period.name }}
                       </div>
                     </td>
                   </tr>
