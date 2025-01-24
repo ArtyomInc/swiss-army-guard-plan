@@ -1,11 +1,20 @@
 <template>
   <nav class="flex h-full items-center justify-between">
     <div class="p-2 h-full">
-      <NuxtImg class="h-full blur-none" src="/favicon.svg" alt="ArtyomInc logo" />
+      <NuxtImg
+        class="h-full blur-none"
+        src="/favicon.svg"
+        alt="ArtyomInc logo"
+      />
     </div>
     <div class="flex items-center gap-2">
       <SwitchTheme />
-      <Link variant="outline" size="icon" href="https://github.com/ArtyomInc" target="_blank">
+      <Link
+        variant="outline"
+        size="icon"
+        href="https://github.com/ArtyomInc"
+        target="_blank"
+      >
         <Icon name="mdi:github" />
       </Link>
       <Dialog>
@@ -29,17 +38,17 @@
 </template>
 
 <script setup lang="ts">
-import { Dialog, DialogContent, DialogTrigger } from '@/ui/dialog'
-import { Link } from '@/ui/link'
+import { Dialog, DialogContent, DialogTrigger } from "@/ui/dialog";
+import { Link } from "@/ui/link";
 
-import SwitchTheme from './theme-switch/SwitchTheme.vue'
+import SwitchTheme from "./theme-switch/SwitchTheme.vue";
 
 const props = defineProps<{
   links: {
-    name: string
-    path: string
-  }[]
-}>()
+    name: string;
+    path: string;
+  }[];
+}>();
 
-const isOpen = ref(false)
+const isOpen = ref(false);
 </script>

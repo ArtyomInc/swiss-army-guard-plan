@@ -9,17 +9,17 @@
 </template>
 
 <script setup lang="ts">
-import { Button } from '@/ui/button'
+import { Button } from "@/ui/button";
 
-const colorMode = useColorMode()
+const colorMode = useColorMode();
 
 function toggle() {
-  if (colorMode.preference === 'system') {
-    colorMode.preference = 'dark'
-  } else if (colorMode.preference === 'dark') {
-    colorMode.preference = 'light'
-  } else if (colorMode.preference === 'light') {
-    colorMode.preference = 'system'
+  if (colorMode.preference === "system") {
+    colorMode.preference = "dark";
+  } else if (colorMode.preference === "dark") {
+    colorMode.preference = "light";
+  } else if (colorMode.preference === "light") {
+    colorMode.preference = "system";
   }
 }
 </script>

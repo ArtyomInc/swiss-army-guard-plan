@@ -6,12 +6,12 @@
 </template>
 
 <script setup lang="ts">
-import DesktopNavBar from './header-nav/DesktopNavBar.vue'
-import MobileNavBar from './header-nav/MobileNavBar.vue'
+import DesktopNavBar from "./header-nav/DesktopNavBar.vue";
+import MobileNavBar from "./header-nav/MobileNavBar.vue";
 
 const links = [
-  { name: 'Accueil', path: '/' },
-  { name: 'Générateur', path: '/guard-plan' },
-  { name: 'À propos', path: '/about' }
-]
+  { name: "Accueil", path: "/" },
+  { name: "Générateur", path: "/guard-plan" },
+  { name: "À propos", path: "/about" },
+];
 </script>
