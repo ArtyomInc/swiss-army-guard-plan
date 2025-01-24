@@ -6,18 +6,17 @@
     </CardHeader>
     <CardContent>
       <UserForm v-model="userField" />
-      <GuardPlan v-if="userField" v-model="userField" />
+      <GuardPlan v-model="userField" />
     </CardContent>
   </Card>
 </template>
 
 <script setup lang="ts">
+import GuardPlan from '@/components/index/GuardPlan.vue'
+import UserForm from '@/components/index/UserForm.vue'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/ui/card'
 
 import type { userForm } from '~/interfaces'
-
-import GuardPlan from './components/index/GuardPlan.vue'
-import UserForm from './components/index/UserForm.vue'
 
 const userField = ref<userForm>()
 </script>

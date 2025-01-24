@@ -1,9 +1,5 @@
 <template>
   <div class="w-full">
-    <Button class="mt-4 w-full" @click="generatePlan"
-      >Générer
-      <Icon name="lucide:iteration-ccw" size="20" />
-    </Button>
     <Dialog v-if="model" v-model:open="isOpen">
       <DialogContent class="max-h-[95svh] overflow-y-auto">
         <DialogHeader>
@@ -60,7 +56,6 @@
 </template>
 
 <script setup lang="ts">
-import { Button } from '@/ui/button'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/ui/dialog'
 
 import type { GuardPerDay, userForm } from '~/interfaces'
@@ -82,12 +77,24 @@ const guardPlan = ref<
   | undefined
 >(undefined)
 
+watch(model, () => {
+  if (model.value) {
+    generatePlan()
+  }
+})
+
+watch(isOpen, value => {
+  if (value == false) {
+    model.value = undefined
+  }
+})
+
 function generatePlan() {
   if (!model.value) {
     return
   }
   if (model.value.begin === undefined || model.value.end === undefined) {
-    throw new Error()
+    return
   }
 
   const beginDateTime = new Date(model.value.begin!)
