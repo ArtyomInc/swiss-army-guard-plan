@@ -21,11 +21,10 @@
     <div class="flex flex-col gap-2">
       <h2>Informations de sécurités</h2>
       <p>
-        Aucunes informations ou données saisies ne sont collectées ! Elles restent localement sur votre navigateur
-        jusqu'à la fin de la session. Seul un compteur de visites est actif et envoie des données anonymes.
+        Aucunes informations ou données saisies ne sont collectées ! Elles
+        restent localement sur votre navigateur jusqu'à la fin de la session.
+        Seul un compteur de visites est actif et envoie des données anonymes.
       </p>
     </div>
   </div>
 </template>
-
-<script setup lang="ts"></script>

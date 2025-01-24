@@ -30,6 +30,7 @@
     "eslint": "^9.15.0",
     "html-to-image": "^1.11.11",
     "nuxt": "^3.14.159",
+    "pdf-lib": "^1.17.1",
     "pinia": "^2.2.6",
     "radix-vue": "^1.9.11",
     "shadcn-nuxt": "0.11.3",

@@ -1,8 +1,9 @@
 <template>
   <div>
-    <Button @click="exportToPDF">
+    <Button :disabled="exportingState" @click="exportToPDF">
       Exporter
-      <Icon name="lucide:download" size="20" />
+      <Icon v-if="!exportingState" name="lucide:download" size="20" />
+      <Icon v-if="exportingState" name="lucide:loader-circle" size="20" class="animate-spin" />
     </Button>
 
     <Teleport to="body">
@@ -62,6 +63,7 @@
 
 <script setup lang="ts">
 import { Button } from '@/ui/button'
+import exportPDF from '@/utils/export-pdf'
 import { toPng } from 'html-to-image'
 
 import type { GuardPerDay } from '~/interfaces'
@@ -74,28 +76,42 @@ const props = defineProps<{
   periodCount: number
 }>()
 
+const exportingState = ref(false)
+
 function exportToPDF() {
+  exportingState.value = true
+  const dataUrls: string[] = []
+  const promises: Promise<void>[] = []
+
   for (let index = 0; index < props.day.length; index++) {
     const element = document.getElementById('table' + index)
     if (element) {
-      toPng(element)
+      const promise = toPng(element)
         .then(function (dataUrl) {
-          downloadImage(dataUrl, `plan_de_garde_${index}.png`)
+          dataUrls.push(dataUrl)
         })
         .catch(err => {
           console.error('Error generating PNG:', err)
         })
+      promises.push(promise)
     }
   }
-}
-
-function downloadImage(dataUrl: string, filename: string) {
-  const link = document.createElement('a')
-  link.href = dataUrl
-  link.download = filename
-  document.body.appendChild(link)
-  link.click()
-  document.body.removeChild(link)
+  Promise.all(promises)
+    .then(() => {
+      exportPDF(dataUrls)
+    })
+    .catch(err => {
+      console.error('Error generating all images:', err)
+    })
+    .finally(() => {
+      setTimeout(() => {
+        exportingState.value = false
+      }, 500)
+    })
+  if (promises.length === 0) {
+    exportingState.value = false
+    return
+  }
 }
 </script>
 
