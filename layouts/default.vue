@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto max-w-screen-2xl px-5 md:px-10">
+  <div class="mx-auto max-w-screen-xl px-5 md:px-10">
     <Header />
     <slot />
     <Footer />
@@ -7,6 +7,6 @@
 </template>
 
 <script setup lang="ts">
-import Footer from "~/components/Footer.vue";
-import Header from "~/components/Header.vue";
+import Footer from '~/components/Footer.vue'
+import Header from '~/components/Header.vue'
 </script>

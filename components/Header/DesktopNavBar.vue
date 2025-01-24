@@ -1,7 +1,6 @@
 <template>
   <nav class="flex h-full items-center justify-between">
-    <div class="p-1 h-full relative">
-      <div class="absolute top-0 left-0 w-full h-full blur-3xl bg-violet-500" />
+    <div class="p-2 h-full">
       <img class="h-full blur-none" src="/favicon.svg" alt="ArtyomInc logo" />
     </div>
     <div class="flex items-center gap-2">

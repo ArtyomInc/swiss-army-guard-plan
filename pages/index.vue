@@ -1,31 +1,41 @@
 <template>
   <div class="flex justify-center items-center">
-    <div class="flex flex-col gap-3 justify-center max-w-screen-lg mt-[10vh]">
-      <p>Bienvenue sur l'outil de <strong>génération de plans de garde</strong> pour les militaires suisses.</p>
-      <Alert class="flex flex-col gap-2">
-        <Icon name="lucide:file-lock-2" size="20" />
-        <AlertTitle>Informations de sécurité !</AlertTitle>
-        <AlertDescription>
-          Aucunes informations saisies ne sont collectées ! Elles restent localement sur votre navigateur jusqu'à la fin
-          de la session. Seul un compteur de visites est actif et envoie des données anonymes.
-        </AlertDescription>
-      </Alert>
-      <p>
-        Cet outil vous permet de planifier des binômes de soldats par tranche horaire, avec plusieurs types
-        d'affectation tels que Externo, Zuko, garde, etc. Très flexible, il offre la possibilité d'ajouter des tranches
-        horaires et des binômes selon vos besoins.
-      </p>
-      <a
-        class="flex items-center gap-2 hover:bg-primary/90 bg-primary px-2 justify-center text-primary-foreground rounded-lg py-2"
-        href="/guard-plan"
-        >Utiliser le générateur
-        <Icon name="lucide:bar-chart-horizontal-big" size="20" />
-      </a>
+    <div class="flex flex-col gap-10 justify-center max-w-screen-md mt-[10vh]">
+      <div class="relative flex justify-center items-center">
+        <div class="absolute bg-violet-500 w-full h-[30vh] blur-3xl opacity-20" />
+        <h1 class="text-5xl z-10 text-center">Le généteur open-source de plan de garde pour militaire</h1>
+      </div>
+      <div class="flex justify-center items-center">
+        <p class="text-center text-xl">
+          Bienvenue sur l'outil personnalisable et open source de <strong>génération de plans de garde</strong> pour les
+          militaires suisses.
+        </p>
+      </div>
+      <div class="flex justify-center items-center">
+        <p class="text-center text-foreground/70">
+          Cet outil vous permet de planifier des binômes de soldats par tranche horaire, avec plusieurs types
+          d'affectation tels que Externo, Zuko, garde, etc. Très flexible, il offre la possibilité d'ajouter des
+          tranches horaires et des binômes selon vos besoins.
+        </p>
+      </div>
+      <div class="flex justify-center items-center gap-3">
+        <a
+          class="flex items-center gap-2 hover:bg-primary/90 bg-primary px-4 justify-center text-primary-foreground rounded-lg py-2"
+          href="/guard-plan"
+          >Utiliser le générateur
+          <Icon name="lucide:bar-chart-horizontal-big" size="20" />
+        </a>
+        <a
+          class="flex items-center gap-2 hover:bg-primary/10 px-4 justify-center text-foreground rounded-lg py-2"
+          href="/guard-plan"
+          >En savoir plus
+          <Icon name="lucide:arrow-right" size="20" />
+        </a>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { Alert, AlertDescription, AlertTitle } from '@/ui/alert'
-import { Button } from '@/ui/button'
 </script>
