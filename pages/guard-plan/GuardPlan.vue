@@ -34,7 +34,10 @@
                       <div>
                         {{
                           decimalToTime(
-                            ((index + 1) * model.periodDuration) / 60,
+                            Math.min(
+                              24,
+                              ((index + 1) * model.periodDuration) / 60,
+                            ),
                           )
                         }}
                       </div>
@@ -125,7 +128,7 @@ function generatePlan() {
 
   const numberOfDay = calculateDaysBetweenDates(beginDateTime, endDateTime);
   const numberOfPair = model.value.pair.length;
-  numberOfPeriod.value = 24 / (model.value.periodDuration / 60);
+  numberOfPeriod.value = Math.round(24 / (model.value.periodDuration / 60));
 
   const periodAffectationTmp = [...model.value.periodTitle];
   for (

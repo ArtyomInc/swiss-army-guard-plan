@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Button :disabled="exportingState" @click="exportToPDF">
+    <Button :disabled="exportingState" @click="tryExport">
       Exporter
       <Icon v-if="!exportingState" name="lucide:download" size="20" />
       <Icon
@@ -43,7 +43,10 @@
                         <div>
                           {{
                             decimalToTime(
-                              ((index + 1) * props.periodDuration) / 60,
+                              Math.min(
+                                24,
+                                ((index + 1) * props.periodDuration) / 60,
+                              ),
                             )
                           }}
                         </div>
@@ -100,8 +103,14 @@ const props = defineProps<{
 
 const exportingState = ref(false);
 
-function exportToPDF() {
+function tryExport() {
   exportingState.value = true;
+  setTimeout(() => {
+    exportToPDF();
+  }, 200);
+}
+
+function exportToPDF() {
   const dataUrls: string[] = [];
   const promises: Promise<void>[] = [];
 
