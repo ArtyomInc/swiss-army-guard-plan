@@ -27,17 +27,11 @@
                     <td v-for="(n, index) in props.periodCount" :key="index">
                       <div class="flex flex-col justify-center items-center">
                         <div>
-                          {{
-                            decimalToTime((index * props.periodDuration) / 60)
-                          }}
+                          {{ decimalToTime((index * props.periodDuration) / 60) }}
                         </div>
                         <div class="-my-2.5">-</div>
                         <div>
-                          {{
-                            decimalToTime(
-                              ((index + 1) * props.periodDuration) / 60,
-                            )
-                          }}
+                          {{ decimalToTime(((index + 1) * props.periodDuration) / 60) }}
                         </div>
                       </div>
                     </td>
@@ -46,12 +40,7 @@
                 <tbody>
                   <tr v-for="pair in item.pair" :key="randomID">
                     <td class="px-2 whitespace-nowrap">{{ pair.name }}</td>
-                    <td
-                      v-for="period in pair.period"
-                      :key="randomID"
-                      class="min-w-20"
-                      :class="period.class"
-                    >
+                    <td v-for="period in pair.period" :key="randomID" class="min-w-20" :class="period.class">
                       <div class="flex justify-center px-2">
                         {{ period.name }}
                       </div>
@@ -72,41 +61,41 @@
 </template>
 
 <script setup lang="ts">
-import { Button } from "@/ui/button";
-import { toPng } from "html-to-image";
+import { Button } from '@/ui/button'
+import { toPng } from 'html-to-image'
 
-import type { GuardPerDay } from "~/interfaces";
+import type { GuardPerDay } from '~/interfaces'
 
-import { decimalToTime, randomID } from "~/lib/utils";
+import { decimalToTime, randomID } from '~/lib/utils'
 
 const props = defineProps<{
-  day: GuardPerDay[];
-  periodDuration: number;
-  periodCount: number;
-}>();
+  day: GuardPerDay[]
+  periodDuration: number
+  periodCount: number
+}>()
 
 function exportToPDF() {
   for (let index = 0; index < props.day.length; index++) {
-    const element = document.getElementById("table" + index);
+    const element = document.getElementById('table' + index)
     if (element) {
       toPng(element)
         .then(function (dataUrl) {
-          downloadImage(dataUrl, `plan_de_garde_${index}.png`);
+          downloadImage(dataUrl, `plan_de_garde_${index}.png`)
         })
-        .catch((err) => {
-          console.error("Error generating PNG:", err);
-        });
+        .catch(err => {
+          console.error('Error generating PNG:', err)
+        })
     }
   }
 }
 
 function downloadImage(dataUrl: string, filename: string) {
-  const link = document.createElement("a");
-  link.href = dataUrl;
-  link.download = filename;
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+  const link = document.createElement('a')
+  link.href = dataUrl
+  link.download = filename
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
 }
 </script>
 

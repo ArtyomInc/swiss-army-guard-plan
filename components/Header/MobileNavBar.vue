@@ -1,7 +1,11 @@
 <template>
   <nav class="flex h-full items-center justify-between">
     <div class="p-2 h-full">
-      <img class="h-full blur-none" src="/favicon.svg" alt="ArtyomInc logo" />
+      <NuxtImg
+        class="h-full blur-none"
+        src="/favicon.svg"
+        alt="ArtyomInc logo"
+      />
     </div>
     <div class="flex items-center gap-2">
       <SwitchTheme />
