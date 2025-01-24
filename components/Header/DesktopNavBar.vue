@@ -9,7 +9,12 @@
           {{ item.name }}
         </Link>
       </template>
-      <Link variant="outline" size="icon" href="https://github.com/ArtyomInc" target="_blank">
+      <Link
+        variant="outline"
+        size="icon"
+        href="https://github.com/ArtyomInc"
+        target="_blank"
+      >
         <Icon name="mdi:github" size="20" />
       </Link>
       <SwitchTheme />
@@ -18,14 +23,14 @@
 </template>
 
 <script setup lang="ts">
-import { Link } from '@/ui/link'
+import { Link } from "@/ui/link";
 
-import SwitchTheme from './Theme/SwitchTheme.vue'
+import SwitchTheme from "./Theme/SwitchTheme.vue";
 
 const props = defineProps<{
   links: {
-    name: string
-    path: string
-  }[]
-}>()
+    name: string;
+    path: string;
+  }[];
+}>();
 </script>

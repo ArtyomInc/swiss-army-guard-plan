@@ -10,7 +10,11 @@
     </div>
     <div>
       <label>Durée de la période de garde [minutes]</label>
-      <Input v-model="userField.periodDuration" placeholder="120" type="number" />
+      <Input
+        v-model="userField.periodDuration"
+        placeholder="120"
+        type="number"
+      />
     </div>
     <div>
       <label>Officier de la garde</label>
@@ -18,12 +22,20 @@
     </div>
     <div>
       <label>Commandant de la garde</label>
-      <Input v-model="userField.commander" placeholder="sgt Cyril" type="text" />
+      <Input
+        v-model="userField.commander"
+        placeholder="sgt Cyril"
+        type="text"
+      />
     </div>
     <div>
       <label>Affectations des périodes</label>
       <TagsInput v-model="userField.periodTitle">
-        <TagsInputItem v-for="item in userField.periodTitle" :key="item" :value="item">
+        <TagsInputItem
+          v-for="item in userField.periodTitle"
+          :key="item"
+          :value="item"
+        >
           <TagsInputItemText />
           <TagsInputItemDelete />
         </TagsInputItem>
@@ -35,8 +47,16 @@
       <label>Paire de soldat</label>
       <template v-for="(pair, index) in userField.pair" :key="index">
         <div class="flex items-center gap-1">
-          <Input v-model="userField.pair[index]" placeholder="Jean" type="text" />
-          <Button v-if="index !== 0" size="icon" variant="destructive" @click="userField.pair.splice(index, 1)"
+          <Input
+            v-model="userField.pair[index]"
+            placeholder="Jean"
+            type="text"
+          />
+          <Button
+            v-if="index !== 0"
+            size="icon"
+            variant="destructive"
+            @click="userField.pair.splice(index, 1)"
             ><Icon name="lucide:trash" size="20"
           /></Button>
         </div>
@@ -52,26 +72,32 @@
 </template>
 
 <script setup lang="ts">
-import { Button } from '@/ui/button'
-import { Input } from '@/ui/input'
-import { TagsInput, TagsInputInput, TagsInputItem, TagsInputItemDelete, TagsInputItemText } from '@/ui/tags-input'
-import { reactive } from 'vue'
+import { Button } from "@/ui/button";
+import { Input } from "@/ui/input";
+import {
+  TagsInput,
+  TagsInputInput,
+  TagsInputItem,
+  TagsInputItemDelete,
+  TagsInputItemText,
+} from "@/ui/tags-input";
+import { reactive } from "vue";
 
-import type { userForm } from '~/interfaces'
+import type { userForm } from "~/interfaces";
 
 const userField = reactive<userForm>({
-  commander: 'sgt Cyril',
-  officer: 'of Nathan',
-  pair: ['Jean & Pierre', 'Michel & Nils', 'Badel & Jörg'],
+  commander: "sgt Cyril",
+  officer: "of Nathan",
+  pair: ["Jean & Pierre", "Michel & Nils", "Badel & Jörg"],
   periodDuration: 120,
-  periodTitle: ['Garde', 'Réserve']
-})
+  periodTitle: ["Garde", "Réserve"],
+});
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: userForm): void
-}>()
+  (e: "update:modelValue", value: userForm): void;
+}>();
 
 watchEffect(() => {
-  emit('update:modelValue', userField)
-})
+  emit("update:modelValue", userField);
+});
 </script>
