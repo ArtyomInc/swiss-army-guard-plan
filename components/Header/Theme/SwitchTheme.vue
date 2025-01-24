@@ -1,16 +1,15 @@
 <template>
   <ClientOnly>
     <Button size="icon" class="rounded-full" variant="outline" @click="toggle">
-      <Icon v-show="colorMode.preference === 'light'" icon="lucide:sun" />
-      <Icon v-show="colorMode.preference === 'dark'" icon="lucide:moon" />
-      <Icon v-show="colorMode.preference === 'system'" icon="lucide:computer" />
+      <Icon v-show="colorMode.preference === 'light'" name="lucide:sun" />
+      <Icon v-show="colorMode.preference === 'dark'" name="lucide:moon" />
+      <Icon v-show="colorMode.preference === 'system'" name="lucide:computer" />
     </Button>
   </ClientOnly>
 </template>
 
 <script setup lang="ts">
 import { Button } from "@/ui/button";
-import { Icon } from "@iconify/vue";
 
 const colorMode = useColorMode();
 
