@@ -10,7 +10,7 @@
         </Link>
       </template>
       <Link variant="outline" size="icon" href="https://github.com/ArtyomInc" target="_blank">
-        <Icon icon="mdi:github" />
+        <Icon name="mdi:github" size="20" />
       </Link>
       <SwitchTheme />
     </div>
@@ -19,7 +19,6 @@
 
 <script setup lang="ts">
 import { Link } from '@/ui/link'
-import { Icon } from '@iconify/vue'
 
 import SwitchTheme from './Theme/SwitchTheme.vue'
 

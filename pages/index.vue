@@ -18,7 +18,7 @@
           tranches horaires et des binômes selon vos besoins.
         </p>
       </div>
-      <div class="flex justify-center items-center gap-3">
+      <div class="flex justify-center items-center flex-col md:flex-row gap-3">
         <a
           class="flex items-center gap-2 hover:bg-primary/90 bg-primary px-4 justify-center text-primary-foreground rounded-lg py-2"
           href="/guard-plan"
