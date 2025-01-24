@@ -27,7 +27,7 @@
         </a>
         <a
           class="flex items-center gap-2 hover:bg-primary/10 px-4 justify-center text-foreground rounded-lg py-2"
-          href="/guard-plan"
+          href="/about"
           >En savoir plus
           <Icon name="lucide:arrow-right" size="20" />
         </a>

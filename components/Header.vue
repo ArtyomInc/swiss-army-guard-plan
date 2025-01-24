@@ -9,6 +9,7 @@ import DesktopNavBar from './Header/DesktopNavBar.vue'
 
 const links = [
   { name: 'Accueil', path: '/' },
-  { name: 'Générateur', path: '/guard-plan' }
+  { name: 'Générateur', path: '/guard-plan' },
+  { name: 'À propos', path: '/about' }
 ]
 </script>
