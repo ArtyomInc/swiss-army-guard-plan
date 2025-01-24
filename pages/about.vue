@@ -2,7 +2,7 @@
   <div class="flex flex-col gap-4 mt-[5vh] mx-1 md:mx-5">
     <h1>À propos</h1>
     <div class="flex flex-col gap-2">
-      <h2>Général</h2>
+      <h2>Auteur</h2>
       <p>
         Cet outil a été créé par ArtyomInc (<a
           class="text-violet-700 hover:underline"
