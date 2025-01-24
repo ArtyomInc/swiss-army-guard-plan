@@ -29,7 +29,7 @@
 <script setup lang="ts">
 import { Link } from "@/ui/link";
 
-import SwitchTheme from "./Theme/SwitchTheme.vue";
+import SwitchTheme from "./theme/SwitchTheme.vue";
 
 const props = defineProps<{
   links: {
