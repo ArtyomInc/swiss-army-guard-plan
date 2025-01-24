@@ -5,7 +5,10 @@
 </template>
 
 <script setup lang="ts">
-import DesktopNavBar from "./Header/DesktopNavBar.vue";
+import DesktopNavBar from './Header/DesktopNavBar.vue'
 
-const links = [{ name: "Home", path: "/" }];
+const links = [
+  { name: 'Accueil', path: '/' },
+  { name: 'Générateur', path: '/guard-plan' }
+]
 </script>

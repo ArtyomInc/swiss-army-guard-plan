@@ -11,7 +11,7 @@
           v-for="(item, x) in props.day"
           :id="'table' + x"
           :key="x"
-          class="w-[1920px] h-[1357px] p-8 text-3xl flex flex-col justify-between gap-8 bg-white"
+          class="w-[1920px] h-[1357px] p-8 text-2xl flex flex-col justify-between gap-8 bg-white"
         >
           <div class="flex flex-col gap-8">
             <img class="w-96" src="@/assets/pictures/logo_swiss_army.png" />
