@@ -34,5 +34,5 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           source: ".output/public/*"
           rm: true
-          target: /var/www/html/swiss-army-guard.arduc.ch
+          target: /var/www/html/swiss-army-guard-plan.arduc.ch
           strip_components: 2
