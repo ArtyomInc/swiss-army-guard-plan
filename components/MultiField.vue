@@ -1,21 +1,9 @@
 <template>
   <div class="flex flex-col gap-1">
-    <div
-      v-if="model && model.length != 0"
-      class="flex gap-1 rounded-[var(--radius)] p-1 border border-border"
-    >
-      <div
-        v-for="(item, index) in model"
-        :key="item"
-        class="flex rounded-[var(--radius)] border items-center gap-1.5"
-      >
+    <div v-if="model && model.length != 0" class="flex gap-1 rounded-[var(--radius)] p-1 border border-border">
+      <div v-for="(item, index) in model" :key="item" class="flex rounded-[var(--radius)] border items-center gap-1.5">
         <p class="pl-2 text-sm">{{ item }}</p>
-        <Button
-          class="w-7 h-7"
-          variant="destructive"
-          size="icon"
-          @click="remove(index)"
-        >
+        <Button class="w-7 h-7" variant="destructive" size="icon" @click="remove(index)">
           <Icon name="lucide:trash-2" size="18" />
         </Button>
       </div>
@@ -36,23 +24,26 @@
 </template>
 
 <script setup lang="ts">
-import { Button } from "@/ui/button";
-const props = defineProps<{ placeholder?: string; id?: string }>();
-const model = defineModel<string[]>();
-const userInput = ref("");
+import { Button } from '@/ui/button'
+const props = defineProps<{ placeholder?: string; id?: string; blockEmpty?: boolean }>()
+const model = defineModel<string[]>()
+const userInput = ref('')
 
 function add(value: string) {
   if (!model.value) {
-    return;
+    return
   }
-  model.value.push(value);
-  userInput.value = "";
+  if (props.blockEmpty === true && userInput.value === '') {
+    return
+  }
+  model.value.push(value)
+  userInput.value = ''
 }
 
 function remove(id: number) {
   if (!model.value) {
-    return;
+    return
   }
-  model.value.splice(id, 1);
+  model.value.splice(id, 1)
 }
 </script>
