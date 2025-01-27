@@ -1,10 +1,6 @@
 <template>
   <div>
     <div class="flex items-center gap-1.5">
-      <div class="items-center flex gap-1.5">
-        <label for="scale">Scale</label>
-        <Input id="scale" type="number" class="w-24" placeholder="0.55" />
-      </div>
       <Button :disabled="exportingState" @click="tryExport">
         Exporter
         <Icon v-if="!exportingState" name="lucide:download" size="20" />
@@ -71,7 +67,6 @@
 
 <script setup lang="ts">
 import { Button } from '@/ui/button'
-import { Input } from '@/ui/input'
 import exportPDF from '@/utils/export-pdf'
 import { toPng } from 'html-to-image'
 
