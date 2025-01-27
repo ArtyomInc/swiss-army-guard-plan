@@ -1,15 +1,27 @@
 <template>
   <div>
-    <Button :disabled="exportingState" @click="tryExport">
-      Exporter
-      <Icon v-if="!exportingState" name="lucide:download" size="20" />
-      <Icon
-        v-if="exportingState"
-        name="lucide:loader-circle"
-        size="20"
-        class="animate-spin"
-      />
-    </Button>
+    <div class="flex items-center gap-1.5">
+      <div class="items-center flex gap-1.5">
+        <label for="scale">Scale</label>
+        <Input
+          id="scale"
+          v-model="customScale"
+          type="number"
+          class="w-24"
+          placeholder="0.55"
+        />
+      </div>
+      <Button :disabled="exportingState" @click="tryExport">
+        Exporter
+        <Icon v-if="!exportingState" name="lucide:download" size="20" />
+        <Icon
+          v-if="exportingState"
+          name="lucide:loader-circle"
+          size="20"
+          class="animate-spin"
+        />
+      </Button>
+    </div>
 
     <Teleport to="body">
       <div class="absolute translate-x-[100vw] top-0">
@@ -86,6 +98,7 @@
 
 <script setup lang="ts">
 import { Button } from "@/ui/button";
+import { Input } from "@/ui/input";
 import exportPDF from "@/utils/export-pdf";
 import { toPng } from "html-to-image";
 
@@ -101,7 +114,8 @@ const props = defineProps<{
   commander: string;
 }>();
 
-const exportingState = ref(false);
+const customScale = ref<number>(0.55);
+const exportingState = ref<boolean>(false);
 
 function tryExport() {
   exportingState.value = true;
@@ -129,7 +143,7 @@ function exportToPDF() {
   }
   Promise.all(promises)
     .then(() => {
-      exportPDF(dataUrls);
+      exportPDF(dataUrls, customScale.value);
     })
     .catch((err) => {
       console.error("Error generating all images:", err);
@@ -148,6 +162,6 @@ function exportToPDF() {
 
 <style scoped>
 td {
-  @apply border;
+  @apply border border-neutral-500;
 }
 </style>
