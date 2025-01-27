@@ -1,6 +1,6 @@
 import { PDFDocument } from 'pdf-lib'
 
-export default async function exportPDF(images: string[], scale: number) {
+export default async function exportPDF(images: string[]) {
   const imageBytesPromises = images.map(async imageUrl => {
     const res = await fetch(imageUrl)
     return await res.arrayBuffer()
