@@ -22,7 +22,7 @@ export default async function exportPDF(images: string[]) {
       image = await pdfDoc.embedPng(imageData)
     }
 
-    const imageDims = image.scale(0.5)
+    const imageDims = image.scale(0.55)
 
     const page = pdfDoc.addPage([1169, 827])
 
