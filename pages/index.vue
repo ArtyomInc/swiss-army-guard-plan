@@ -2,19 +2,25 @@
   <div class="flex justify-center items-center">
     <div class="flex flex-col gap-10 justify-center max-w-screen-md mt-[10vh]">
       <div class="relative flex justify-center items-center">
-        <div class="absolute from-violet-400 to-green-400 bg-gradient-to-br w-full h-[30vh] blur-3xl opacity-50" />
-        <h1 class="text-5xl z-10 text-center">Le générateur open-source de plan de garde pour militaire</h1>
+        <div
+          class="absolute from-violet-400 to-green-400 bg-gradient-to-br w-full h-[30vh] blur-3xl opacity-50"
+        />
+        <h1 class="text-5xl z-10 text-center">
+          Le générateur open-source de plan de garde pour militaire
+        </h1>
       </div>
       <div class="flex justify-center items-center">
         <p class="text-center text-xl">
           Bienvenue sur l'outil personnalisable et open source de
-          <strong>génération de plans de garde</strong> pour les militaires suisses.
+          <strong>génération de plans de garde</strong> pour les militaires
+          suisses.
         </p>
       </div>
       <div class="flex justify-center items-center">
         <p class="text-center text-foreground/70">
-          Cet outil vous permet de planifier des binômes de soldats par tranche horaire, avec plusieurs types
-          d'affectation tels que Externo, Zuko, garde, etc. Très flexible, il offre la possibilité d'ajouter des
+          Cet outil vous permet de planifier des binômes de soldats par tranche
+          horaire, avec plusieurs types d'affectation tels que Externo, Zuko,
+          garde, etc. Très flexible, il offre la possibilité d'ajouter des
           tranches horaires et des binômes selon vos besoins.
         </p>
       </div>
